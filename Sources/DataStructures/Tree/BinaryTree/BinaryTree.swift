@@ -40,13 +40,13 @@ class BinaryTree<T>: Tree {
 
     private func traversePreOrder(_ node: TreeNode<T>, _ completion: (T) -> Void) {
         completion(node.value)
-        unwrap(node.left) { traverseInOrder($0, completion) }
-        unwrap(node.right) { traverseInOrder($0, completion) }
+        unwrap(node.left) { traversePreOrder($0, completion) }
+        unwrap(node.right) { traversePreOrder($0, completion) }
     }
 
     private func traversePostOrder(_ node: TreeNode<T>, _ completion: (T) -> Void) {
-        unwrap(node.left) { traverseInOrder($0, completion) }
-        unwrap(node.right) { traverseInOrder($0, completion) }
+        unwrap(node.left) { traversePostOrder($0, completion) }
+        unwrap(node.right) { traversePostOrder($0, completion) }
         completion(node.value)
     }
 
