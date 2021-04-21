@@ -26,6 +26,11 @@ class BinaryTreeTests: XCTestCase {
     override func tearDown() {
         self.tree = nil
     }
+    
+    func testHeight() {
+        let height = tree?.height ?? 0
+        XCTAssertEqual(height, 7)
+    }
 
     func testInOrderTraverse() {
         var values: [String] = []

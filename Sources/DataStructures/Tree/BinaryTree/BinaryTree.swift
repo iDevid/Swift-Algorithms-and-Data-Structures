@@ -9,7 +9,7 @@ import Foundation
 
 class BinaryTree<T>: Tree {
 
-    let root: TreeNode<T>
+    private let root: TreeNode<T>
 
     init(_ root: TreeNode<T>) {
         self.root = root
@@ -17,6 +17,10 @@ class BinaryTree<T>: Tree {
 
     init(_ rootValue: T) {
         self.root = TreeNode(rootValue)
+    }
+    
+    var height: Int {
+        root.count
     }
 
     public func traverse(type: TreeTraverseType, completion: (T) -> Void) {

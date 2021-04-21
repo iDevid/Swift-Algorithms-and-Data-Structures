@@ -10,7 +10,7 @@ import Foundation
 protocol Tree {
     associatedtype T
 
-    var root: TreeNode<T> { get }
+    var height: Int { get }
 
     func traverse(type: TreeTraverseType, completion: (T) -> Void)
 }
